@@ -34,7 +34,10 @@ read key
 
 echo '' 
 sudo cp rootfs/lib/modules/5.15.136-tegra/updates/drivers/media/i2c/fzcam.ko /lib/modules/$(uname -r)/updates/drivers/media/i2c/
-sudo insmod /lib/modules/$(uname -r)/updates/drivers/media/i2c/fzcam.ko
+if ! lsmod | grep -q '^fzcam[[:space:]]'; then
+	sudo insmod /lib/modules/$(uname -r)/updates/drivers/media/i2c/fzcam.ko
+	sudo depmod
+fi
 sudo depmod
 
 sudo cp fzcam_app/etc/fzcam_cfg.ini /etc/

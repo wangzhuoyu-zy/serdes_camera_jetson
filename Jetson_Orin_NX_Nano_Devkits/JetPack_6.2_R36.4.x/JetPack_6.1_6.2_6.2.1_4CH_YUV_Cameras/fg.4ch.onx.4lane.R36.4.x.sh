@@ -52,8 +52,10 @@ read key
 
 echo '' 
 sudo cp rootfs/lib/modules/$(uname -r)/updates/drivers/media/i2c/fzcam.ko /lib/modules/$(uname -r)/updates/drivers/media/i2c/
-sudo insmod /lib/modules/$(uname -r)/updates/drivers/media/i2c/fzcam.ko
-sudo depmod
+if ! lsmod | grep -q '^fzcam[[:space:]]'; then
+	sudo insmod /lib/modules/$(uname -r)/updates/drivers/media/i2c/fzcam.ko
+	sudo depmod
+fi
 
 sudo cp fzcam_app/etc/fzcam_cfg.ini /etc/
 sudo cp fzcam_app/usr/local/bin/fzcam_cfg.4lane /usr/local/bin/fzcam_cfg
@@ -73,4 +75,3 @@ green_print 'Please press and key to reboot Jetson, after setting dtbo'
 read key
 
 sudo reboot
-
