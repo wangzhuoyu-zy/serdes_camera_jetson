@@ -1,6 +1,6 @@
 # FG96-2CH FZCAM JetPack 6.2 (R36.4.x) SOP
 
-目录：JetPack_6.2_2CH_YUV_Cameras
+目录：JetPack_6.1_6.2_2CH_YUV_Cameras
 
 ## 1. 目标
 
@@ -30,7 +30,7 @@
 将整个目录拷贝到 Jetson：
 
 ```bash
-scp -r JetPack_6.2_2CH_YUV_Cameras nvidia@<JETSON_IP>:
+scp -r JetPack_6.1_6.2_2CH_YUV_Cameras nvidia@<JETSON_IP>:
 ```
 
 在 Jetson 上进入目录并执行升级脚本（需要 sudo）：
@@ -38,14 +38,14 @@ scp -r JetPack_6.2_2CH_YUV_Cameras nvidia@<JETSON_IP>:
 ### 3.1 2lane（接 CAM0）
 
 ```bash
-cd ~/JetPack_6.2_2CH_YUV_Cameras
+cd ~/JetPack_6.1_6.2_2CH_YUV_Cameras
 sudo bash fg.2ch.onx.2lane.R36.4.x.sh
 ```
 
 ### 3.2 4lane（接 CAM1）
 
 ```bash
-cd ~/JetPack_6.2_2CH_YUV_Cameras
+cd ~/JetPack_6.1_6.2_2CH_YUV_Cameras
 sudo bash fg.2ch.onx.4lane.R36.4.x.sh
 ```
 

@@ -1,6 +1,6 @@
 # FG 4CH FZCAM JetPack 6.x (R36.4.x) SOP (English)
 
-Directory: JetPack_6.x_4CH_SERDES
+Directory: JetPack_6.1_6.2_4CH_YUV_Cameras
 
 ## 1. Objectives
 
@@ -32,7 +32,7 @@ Directory: JetPack_6.x_4CH_SERDES
 Copy the entire directory to Jetson (choose any method):
 
 ```bash
-scp -r JetPack_6.x_4CH_SERDES nvidia@<JETSON_IP>:
+scp -r JetPack_6.1_6.2_4CH_YUV_Cameras nvidia@<JETSON_IP>:
 ```
 
 Enter the directory on Jetson and execute the upgrade script (sudo required):
@@ -40,14 +40,14 @@ Enter the directory on Jetson and execute the upgrade script (sudo required):
 ### 3.1 2lane (connected to CAM0)
 
 ```bash
-cd ~/JetPack_6.x_4CH_SERDES
+cd ~/JetPack_6.1_6.2_4CH_YUV_Cameras
 sudo bash fg.4ch.onx.2lane.R36.4.x.sh
 ```
 
 ### 3.2 4lane (connected to CAM1)
 
 ```bash
-cd ~/JetPack_6.x_4CH_SERDES
+cd ~/JetPack_6.1_6.2_4CH_YUV_Cameras
 sudo bash fg.4ch.onx.4lane.R36.4.x.sh
 ```
 

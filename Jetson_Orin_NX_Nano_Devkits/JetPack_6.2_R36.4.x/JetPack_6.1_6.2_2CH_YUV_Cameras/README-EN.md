@@ -1,6 +1,6 @@
 # FG96-2CH FZCAM JetPack 6.2 (R36.4.x) SOP (English)
 
-Directory: JetPack_6.2_2CH_YUV_Cameras
+Directory: JetPack_6.1_6.2_2CH_YUV_Cameras
 
 ## 1. Objectives
 
@@ -30,7 +30,7 @@ Directory: JetPack_6.2_2CH_YUV_Cameras
 Copy the entire directory to Jetson:
 
 ```bash
-scp -r JetPack_6.2_2CH_YUV_Cameras nvidia@<JETSON_IP>:
+scp -r JetPack_6.1_6.2_2CH_YUV_Cameras nvidia@<JETSON_IP>:
 ```
 
 Enter the directory on Jetson and execute the upgrade script (sudo required):
@@ -38,14 +38,14 @@ Enter the directory on Jetson and execute the upgrade script (sudo required):
 ### 3.1 2lane (connected to CAM0)
 
 ```bash
-cd ~/JetPack_6.2_2CH_YUV_Cameras
+cd ~/JetPack_6.1_6.2_2CH_YUV_Cameras
 sudo bash fg.2ch.onx.2lane.R36.4.x.sh
 ```
 
 ### 3.2 4lane (connected to CAM1)
 
 ```bash
-cd ~/JetPack_6.2_2CH_YUV_Cameras
+cd ~/JetPack_6.1_6.2_2CH_YUV_Cameras
 sudo bash fg.2ch.onx.4lane.R36.4.x.sh
 ```
 
