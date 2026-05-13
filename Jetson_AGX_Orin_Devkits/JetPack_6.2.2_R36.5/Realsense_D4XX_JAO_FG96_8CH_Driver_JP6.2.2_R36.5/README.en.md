@@ -48,7 +48,7 @@ sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 2="Jetson Camera FG96_8CH_D4
 sudo reboot
 ```
 
-### 4.2 8x D457 (CAM0~7, depth + RGB channels)
+### 4.2 8x D457 (CAM0\~7, depth + RGB channels)
 
 ```bash
 sudo cp tegra234-p3737-camera-8xd4xx-fg96-8ch-overlay.dtbo /boot/
@@ -64,3 +64,8 @@ lsmod | egrep 'd4xx|max9295|max9296|tegra_camera|capture_ivc|nvhost_nvcsi' || tr
 ls -l /dev/video* || true
 ```
 
+## 6. Realsense Viewer
+
+![D4XX Realsense Viewer](./D4XX_Realsense-viewer.png)
+
+<br />

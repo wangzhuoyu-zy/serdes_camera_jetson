@@ -64,3 +64,9 @@ lsmod | egrep 'd4xx|max9295|max9296|tegra_camera|capture_ivc|nvhost_nvcsi' || tr
 ls -l /dev/video* || true
 ```
 
+
+## 6. Realsense Viewer
+
+![D4XX Realsense Viewer](./D4XX_Realsense-viewer.png)
+
+<br />
