@@ -85,7 +85,10 @@ if [ ! -f $max9296_dir/max9295.ko.orig ];then
 fi
 sudo cp max9295.ko $max9295_dir
 sudo cp d4xx.ko $max9295_dir
-sudo cp fzcam.ko $max9295_dir
+
+if [ -f fzcam.ko ];then
+    sudo cp fzcam.ko $max9295_dir
+fi
 
 ## copy Image file ##
 #if [ ! -f "/boot/Image.orig" ];then
