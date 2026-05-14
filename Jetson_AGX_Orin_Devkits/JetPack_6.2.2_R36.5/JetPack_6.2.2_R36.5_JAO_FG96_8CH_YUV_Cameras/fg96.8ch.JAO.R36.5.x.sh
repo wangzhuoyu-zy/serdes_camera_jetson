@@ -64,7 +64,7 @@ sudo systemctl enable  /etc/systemd/system/fzcam_cfg.service
 sudo systemctl daemon-reload
 
 sudo cp rootfs/boot/tegra234-p3737-camera-fzcam-fg96-8ch-4lanes.dtbo /boot/
-sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 2="Jetson Camera FG96_8CH"
+sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 2="Jetson Camera FG96_8CH_8xYUV"
 
 green_print 'Upgrade FW success, please press Enter to reboot Jetson Orin'
 read key
