@@ -70,7 +70,7 @@ sudo systemctl enable  /etc/systemd/system/fzcam_cfg.service
 sudo systemctl daemon-reload
 
 sudo cp rootfs/boot/tegra234-p3737-camera-fzcam-fg12-16ch-4lanes.dtbo /boot/
-sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 2="Jetson Camera FG12_16CH"
+sudo /opt/nvidia/jetson-io/config-by-hardware.py -n 2="Jetson Camera FG12_16CH_16xYUV"
 
 green_print 'Upgrade FW success, please press Enter to reboot Jetson Orin'
 read key
