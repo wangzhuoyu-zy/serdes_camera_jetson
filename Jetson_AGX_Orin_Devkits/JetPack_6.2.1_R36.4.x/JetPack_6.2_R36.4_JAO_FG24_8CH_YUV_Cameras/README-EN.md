@@ -1,16 +1,18 @@
-# FG96 8CH YUV Cameras JetPack 6.x (R36.4.x) SOP (English)
+# FG24 8CH YUV Cameras JetPack 6.2.x (R36.4.x) SOP
 
-Directory: JetPack_6.x_JAO_FG96_8CH_YUV_Cameras
+Directory: JetPack_6.2_R36.4_JAO_FG24_8CH_YUV_Cameras
 
 ## 1. Objectives
 
-- Complete firmware/application upgrade on Jetson AGX Orin + FG96 8CH YUV Cameras kit.
+- Complete firmware/application upgrade on Jetson AGX Orin + FG24 8CH YUV Cameras kit.
 - Support configuration and usage of 8-channel YUV cameras.
 
 ## 2. Upgrade Package Content Description
 
 - Upgrade script
-  - fg96.8ch.JAO.R36.4.x.sh
+  - fg24.8ch.JAO.R36.4.x.sh
+- DTBO Device Tree Overlay
+  - `rootfs/boot/tegra234-p3737-camera-fzcam-fg24-8ch-4lanes.dtbo`
 - Drivers and configuration
   - `rootfs/lib/modules/*/updates/drivers/media/i2c/fzcam.ko`
 - Applications and configuration
@@ -18,29 +20,35 @@ Directory: JetPack_6.x_JAO_FG96_8CH_YUV_Cameras
   - `fzcam_app/usr/local/bin/fzcam_cfg`
   - `fzcam_app/etc/fzcam_cfg.ini`
   - `fzcam_app/fzcam_cfg.service`
+- Demo images and video
+  - `pics_videos/fg24_8ch_fzcam_ui.png`
+  - `pics_videos/fg24_8ch_fzcam_ui_2.png`
+  - `pics_videos/fg24_8ch_agx_orin_demo_video.webm`
 
 ## 3. Execute Upgrade on Jetson
 
 Copy the entire directory to Jetson (choose any method):
 
 ```bash
-scp -r JetPack_6.x_JAO_FG96_8CH_YUV_Cameras nvidia@<JETSON_IP>:
+scp -r JetPack_6.2.2_R36.5_JAO_FG24_8CH_YUV_Cameras nvidia@<JETSON_IP>:
 ```
 
 Enter the directory on Jetson and execute the upgrade script (sudo required):
 
 ```bash
-cd ~/JetPack_6.x_JAO_FG96_8CH_YUV_Cameras
-sudo bash fg96.8ch.JAO.R36.4.x.sh
+cd ~/JetPack_6.2.2_R36.5_JAO_FG24_8CH_YUV_Cameras
+sudo bash fg24.8ch.JAO.R36.5.x.sh
 ```
 
 What the script does (key points):
+- Check if JetPack version is R36.5.0/5.3/5.4/5.7
 - Install driver `fzcam.ko` and run `insmod` / `depmod`
 - Install configuration file `/etc/fzcam_cfg.ini`
 - Install applications:
   - `/usr/local/bin/fzcam_cfg`
   - `/usr/local/bin/fzcam_ui`
 - Install and enable systemd service: `/etc/systemd/system/fzcam_cfg.service`
+- Install DTBO and configure hardware via Jetson-IO
 - Restart after secondary confirmation
 
 ## 4. Post-restart Configuration and Image Verification
@@ -56,13 +64,10 @@ After selecting the manufacturer/model in the UI:
 - Then click "Run Configuration"
 - Observe if Link status is 1 (indicating the link is locked and has video data)
 
-![8CH FZCAM UI](pics_videos/fg96-8ch-fzcam-ui.png)
+![8CH FZCAM UI 1](pics_videos/fg24_8ch_fzcam_ui.png)
+![8CH FZCAM UI 2](pics_videos/fg24_8ch_fzcam_ui_2.png)
 
 ### 4.2 GStreamer Quick Verification
-
-![8CH FZCAM UI](pics_videos/fg96-8ch-fzcam-ui.png)
-
-### 4.3 GStreamer Quick Verification
 
 Taking video0 as an example:
 
