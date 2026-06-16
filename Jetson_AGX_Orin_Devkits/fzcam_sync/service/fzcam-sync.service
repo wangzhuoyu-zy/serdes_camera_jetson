@@ -1,0 +1,12 @@
+[Unit]
+Description=fzcam_sync TSC Time Sync Service
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/fzcam_sync_daemon
+Restart=on-failure
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
