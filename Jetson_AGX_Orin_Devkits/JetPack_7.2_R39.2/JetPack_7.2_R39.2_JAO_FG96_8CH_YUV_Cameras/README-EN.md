@@ -38,6 +38,28 @@ Enter the directory on Jetson and execute the upgrade script (sudo required):
 cd ~/JetPack_7.2_R39.2_JAO_FG96_8CH_YUV_Cameras
 sudo bash fg96.8ch.JAO.R39.2.sh
 ```
+```bash
+#/boot/extlinux/extlinux.conf
+
+TIMEOUT 30
+DEFAULT JetsonIO
+
+MENU TITLE L4T boot options
+
+LABEL primary
+      MENU LABEL primary kernel
+      LINUX /boot/Image
+      INITRD /boot/initrd
+      APPEND ${cbootargs} root=/dev/mmcblk0p1 rw rootwait rootfstype=ext4 mminit_loglevel=4 console=ttyTCU0,115200 console=ttyAMA0,115200 firmware_class.path=/etc/firmware fbcon=map:0 video=efifb:off console=tty0 efi_pstore.pstore_disable=1 pstore.backend=ramoops efi=runtime nvme.use_threaded_interrupts=1 swiotlb=2048 pci=pcie_bus_perf 
+
+LABEL JetsonIO
+      MENU LABEL Custom Header Config: <Jetson Camera FG96_8CH_8xYUV>
+      LINUX /boot/Image
+      FDT /boot/dtb/kernel_tegra234-p3737-0000+p3701-0004-nv-super.dtb
+      INITRD /boot/initrd
+      APPEND ${cbootargs} root=/dev/mmcblk0p1 rw rootwait rootfstype=ext4 mminit_loglevel=4 console=ttyTCU0,115200 console=ttyAMA0,115200 firmware_class.path=/etc/firmware fbcon=map:0 video=efifb:off console=tty0 efi_pstore.pstore_disable=1 pstore.backend=ramoops efi=runtime nvme.use_threaded_interrupts=1 swiotlb=2048 pci=pcie_bus_perf
+      OVERLAYS /boot/tegra234-p3737-camera-fzcam-fg96-8ch-4lanes.dtbo
+```
 
 What the script does (key points):
 - Check if JetPack version is R39.2.0 / R39.2.3
